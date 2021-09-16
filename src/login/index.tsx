@@ -5,11 +5,18 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Checkbox from '@material-ui/core/Checkbox'
 
+interface LoginForm extends HTMLFormElement {
+  username: string
+  password: string
+  agreement: boolean
+}
+
 const Login: FC = (): ReactElement => {
-  const loginRef = useRef(null)
+  const loginRef = useRef<LoginForm>(null)
 
   const loginHandle = (): void => {
-    console.log(loginRef.current)
+    let fd = new FormData(loginRef.current!)
+    console.log(fd)
   }
 
   return (
@@ -18,8 +25,13 @@ const Login: FC = (): ReactElement => {
         <form className="login-form" ref={loginRef}>
           <div className="system-name">ZXXXX</div>
           <TextField name="username" placeholder="请输入用户名" />
-          <TextField name="password" placeholder="请输入密码" />
-          <Button variant="contained" color="primary" disableElevation onClick={loginHandle}>
+          <TextField name="password" type="password" placeholder="请输入密码" />
+          <Button
+            variant="contained"
+            color="primary"
+            disableElevation
+            onClick={loginHandle}
+          >
             登录
           </Button>
           <div className="agreement-context">
