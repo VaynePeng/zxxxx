@@ -17,7 +17,17 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader',
+          {
+            loader: 'style-resources-loader',
+            options: {
+              patterns: path.resolve(__dirname, './assets/css/color.less')
+            }
+          }
+        ],
         exclude: [path.resolve(__dirname, './node_modules')]
       }
     ]
@@ -29,5 +39,8 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', 'jsx', '.json', '.ts', '.tsx']
+  },
+  devServer: {
+    historyApiFallback: true // 解决BrowserRouter刷新404的问题
   }
 }
