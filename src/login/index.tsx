@@ -1,4 +1,6 @@
 import React, { FC, memo, ReactElement, useRef } from 'react'
+import { useHistory } from 'react-router'
+import Cookies from 'js-cookie'
 import './index.less'
 
 import TextField from '@material-ui/core/TextField'
@@ -12,11 +14,13 @@ interface LoginForm extends HTMLFormElement {
 }
 
 const Login: FC = (): ReactElement => {
+  const history = useHistory()
   const loginRef = useRef<LoginForm>(null)
 
   const loginHandle = (): void => {
     let fd = new FormData(loginRef.current!)
-    console.log(fd)
+    Cookies.set('token', fd)
+    history.push('/')
   }
 
   return (
