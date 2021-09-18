@@ -1,7 +1,7 @@
 import React, { FC, memo, ReactElement } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { routes } from '../router'
+import { routes } from '../../router'
 
 const Layout: FC = (): ReactElement => {
   return (
