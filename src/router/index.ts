@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Index from '../src/home/index'
+import Index from '../pages/home/index'
 
 interface IRouters {
   title: string,

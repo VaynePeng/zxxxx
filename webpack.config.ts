@@ -24,7 +24,7 @@ module.exports = {
           {
             loader: 'style-resources-loader',
             options: {
-              patterns: path.resolve(__dirname, './assets/css/color.less')
+              patterns: path.resolve(__dirname, './src/assets/css/color.less')
             }
           }
         ],

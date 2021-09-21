@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactElement } from 'react'
+import React, { FC, ReactElement } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import { routes } from '../../router'
@@ -19,4 +19,4 @@ const Layout: FC = (): ReactElement => {
   )
 }
 
-export default memo(Layout)
+export default Layout

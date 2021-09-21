@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactElement, useRef, useState } from 'react'
+import React, { FC, ReactElement, useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import Cookies from 'js-cookie'
 import './index.less'
@@ -23,13 +23,7 @@ const Login: FC = (): ReactElement => {
   const [isAgree, setIsAgree] = useState<boolean>(false)
 
   const loginHandle = (): void => {
-    if (!loginForm.username) {
-      return
-    } else if (!loginForm.password) {
-      return
-    } else if (!isAgree) {
-      return
-    }
+    Cookies.set('token', 'token')
     history.push('/')
   }
 
@@ -83,4 +77,4 @@ const Login: FC = (): ReactElement => {
   )
 }
 
-export default memo(Login)
+export default Login
