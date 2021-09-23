@@ -1,3 +1,8 @@
 interface Window {
-  AMap: any
+  AMap: {
+    Map: {
+      new (event: string, ...params: any)
+    }
+    [propName: string]: any
+  }
 }

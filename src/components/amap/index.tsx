@@ -1,4 +1,5 @@
-import React, { CSSProperties, FC, memo, ReactElement, useEffect } from 'react'
+import React, { CSSProperties, FC, memo, ReactElement } from 'react'
+import AMap from '../../utils/amap'
 
 interface AMapProps {
   zoom?: number
@@ -12,11 +13,11 @@ type ReadonlyProps = Readonly<AMapProps>
 const AGMap: FC<ReadonlyProps> = (props: ReadonlyProps): ReactElement => {
   const { style, ...mapParams } = props
 
-  useEffect(() => {
+  AMap.onload.then(() => {
     new window.AMap.Map('container', {
       ...mapParams
     })
-  }, [])
+  })
 
   return <div id="container" style={style}></div>
 }
