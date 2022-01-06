@@ -1,7 +1,7 @@
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+import path from 'path'
+import HTMLWebpackPlugin from 'html-webpack-plugin'
 
-module.exports = {
+const webpackConfig = {
   mode: 'development',
   entry: './index.tsx',
   output: {
@@ -38,9 +38,14 @@ module.exports = {
     })
   ],
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src/')
+    },
     extensions: ['.js', 'jsx', '.json', '.ts', '.tsx']
   },
   devServer: {
     historyApiFallback: true // 解决BrowserRouter刷新404的问题
   }
 }
+
+export default webpackConfig

@@ -1,4 +1,11 @@
-import { resolve } from 'path/posix'
+/*
+ * @Description: 高德地图
+ * @Author: WaynePeng
+ * @Date: 2022-01-06 15:12:31
+ * @LastEditTime: 2022-01-06 15:29:50
+ * @LastEditors: WaynePeng
+ */
+
 class AMap {
   private key: string
   private version?: string
