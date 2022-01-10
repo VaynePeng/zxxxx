@@ -34,12 +34,12 @@ const webpackConfig = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './public/index.html'
+      template: path.resolve(__dirname, './public/index.html')
     })
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src/')
+      '@': path.resolve(__dirname, './src')
     },
     extensions: ['.js', 'jsx', '.json', '.ts', '.tsx']
   },

@@ -3,22 +3,36 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './app.less'
 
-import Login from './src/pages/login'
-import Layout from './src/pages/layout'
+import { routes } from './src/router'
+
+import Layout from './src/layout'
 
 const App: FC = (): ReactElement => {
   return (
     <div className="app">
       <BrowserRouter>
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route
-            path="/"
-            render={() => {
-              let isLogin = Cookies.get('token')
-              return isLogin ? <Layout /> : <Redirect to="/login" />
-            }}
-          />
+          {routes.map((element, index) => {
+            const Component = element.component
+            return (
+              <Route
+                key={index}
+                path={element.path}
+                render={(props): ReactElement => {
+                  const { isAuth } = element
+                  const isLogged = Cookies.get('token')
+                  const isNext = isAuth && !isLogged
+                  return isNext ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <Layout {...element}>
+                      <Component />
+                    </Layout>
+                  )
+                }}
+              />
+            )
+          })}
         </Switch>
       </BrowserRouter>
     </div>
