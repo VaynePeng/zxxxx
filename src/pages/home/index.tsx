@@ -6,7 +6,7 @@ import AMap from '../../components/amap'
 const Index: FC = (): ReactElement => {
   return (
     <div className="home">
-      123123
+      123
       <AMap style={{ width: '100%', height: '100%' }} />
     </div>
   )
