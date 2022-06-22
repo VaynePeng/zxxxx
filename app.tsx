@@ -18,11 +18,11 @@ const App: FC = (): ReactElement => {
               <Route
                 key={index}
                 path={element.path}
-                render={(props): ReactElement => {
+                render={(): ReactElement => {
                   const { isAuth } = element
                   const isLogged = Cookies.get('token')
-                  const isNext = isAuth && !isLogged
-                  return isNext ? (
+                  const notNext = isAuth && !isLogged
+                  return notNext ? (
                     <Redirect to="/login" />
                   ) : (
                     <Layout {...element}>

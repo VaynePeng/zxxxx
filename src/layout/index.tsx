@@ -1,9 +1,11 @@
 import React, { FC, ReactElement } from 'react'
+import './index.less'
 
 import { Layout } from '../router'
 
 import Navigation from './navigation'
 import Footer from './footer'
+
 
 interface ILayout {
   children?: ReactElement | undefined
@@ -17,11 +19,11 @@ const Layout: FC<ILayout> = (
   const isHeader = ['normal', 'no-footer'].includes(layout)
   const isFooter = ['normal', 'no-header'].includes(layout)
   return (
-    <>
+    <div className="layout">
       {isHeader && <Navigation />}
-      {props.children}
+      <div className="content">{props.children}</div>
       {isFooter && <Footer />}
-    </>
+    </div>
   )
 }
 
