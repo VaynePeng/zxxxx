@@ -51,7 +51,7 @@ const Login: FC = (): ReactElement => {
               })
             }
             type="password"
-            placeholder="请输入密码"
+            placeholder="请输入密码password"
           />
           <Button
             variant="contained"
