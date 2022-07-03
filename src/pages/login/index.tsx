@@ -59,7 +59,7 @@ const Login: FC = (): ReactElement => {
             disableElevation
             onClick={loginHandle}
           >
-            登录 Login login
+            登录 Login
           </Button>
           <div className="agreement-context">
             <Checkbox
