@@ -51,7 +51,7 @@ const Login: FC = (): ReactElement => {
               })
             }
             type="password"
-            placeholder="请输入密码password"
+            placeholder="请输入密码"
           />
           <Button
             variant="contained"
@@ -59,7 +59,7 @@ const Login: FC = (): ReactElement => {
             disableElevation
             onClick={loginHandle}
           >
-            登录 Login
+            登录
           </Button>
           <div className="agreement-context">
             <Checkbox
